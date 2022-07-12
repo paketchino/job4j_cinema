@@ -28,7 +28,7 @@ public class UserService {
         Optional<User> findUser = Optional.empty();
         List<User> users = userInDb.users();
         for (User user : users) {
-            if (user.getEmail().equals(email)){
+            if (user.getEmail().equals(email)) {
                 findUser = Optional.of(user);
             }
         }

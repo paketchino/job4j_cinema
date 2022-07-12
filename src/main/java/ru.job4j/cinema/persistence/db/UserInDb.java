@@ -28,8 +28,9 @@ public class UserInDb {
         Optional<User> rsl = Optional.empty();
         try (Connection cn = pool.getConnection();
              PreparedStatement preparedStatement =
-                     cn.prepareStatement("insert into users " +
-                             "(username, email, phone)" + "values (?, ?, ?)",
+                     cn.prepareStatement("insert into users "
+                                     + "(username, email, phone)"
+                                     + "values (?, ?, ?)",
                              PreparedStatement.RETURN_GENERATED_KEYS)
         ) {
             preparedStatement.setString(1, user.getName());

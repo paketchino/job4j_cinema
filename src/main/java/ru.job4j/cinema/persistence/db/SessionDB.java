@@ -93,8 +93,8 @@ public class SessionDB {
         List<Ticket> tickets = new ArrayList<>();
         try (Connection cn = pool.getConnection();
              PreparedStatement preparedStatement =
-                     cn.prepareStatement("SELECT * FROM ticket " +
-                             "WHERE session_id = ? AND pos_row = ? AND cell = ?")
+                     cn.prepareStatement("SELECT * FROM ticket "
+                             + "WHERE session_id = ? AND pos_row = ? AND cell = ?")
         ) {
             preparedStatement.setInt(1, sessionId);
             preparedStatement.setInt(2, row);

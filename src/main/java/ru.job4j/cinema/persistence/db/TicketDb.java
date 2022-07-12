@@ -30,12 +30,12 @@ public class TicketDb {
         Optional<Ticket> rsl = Optional.empty();
         try (Connection cn = pool.getConnection();
              PreparedStatement preparedStatement =
-                     cn.prepareStatement("insert into ticket " +
-                                     "(session_id, pos_row, cell, user_id)" + "values (?, ?, ?, ?)",
+                     cn.prepareStatement("insert into ticket "
+                                     + "(session_id, pos_row, cell, user_id)" + "values (?, ?, ?, ?)",
                              PreparedStatement.RETURN_GENERATED_KEYS)
         ) {
             preparedStatement.setInt(1, ticket.getSession().getId());
-            preparedStatement.setInt(2, ticket.getPos_row());
+            preparedStatement.setInt(2, ticket.getPosRow());
             preparedStatement.setInt(3, ticket.getCell());
             preparedStatement.setInt(4, ticket.getUser().getId());
             preparedStatement.execute();
@@ -51,14 +51,14 @@ public class TicketDb {
         return rsl;
     }
 
-    public List<Ticket> findById(int movieId, int pos_row) {
+    public List<Ticket> findById(int movieId, int posRow) {
        List<Ticket> rsl = new ArrayList<>();
         try (Connection cn = pool.getConnection();
              PreparedStatement preparedStatement =
                      cn.prepareStatement("select * from ticket where movie_id = ? where pos_row = ?")
         ) {
             preparedStatement.setInt(1, movieId);
-            preparedStatement.setInt(2, pos_row);
+            preparedStatement.setInt(2, posRow);
             try (ResultSet it = preparedStatement.executeQuery()) {
                 if (it.next()) {
                     rsl.add(new Ticket(

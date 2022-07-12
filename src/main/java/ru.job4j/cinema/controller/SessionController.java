@@ -45,8 +45,8 @@ public class SessionController {
         return "redirect:/sessions";
     }
 
-    @GetMapping("/postPos_rowAndCell/{sessionId}")
-    public String postPos_rowAndCell(Model model, HttpSession session, @PathVariable("sessionId") int id) {
+    @GetMapping("/postPosRowAndCell/{sessionId}")
+    public String postPosRowAndCell(Model model, HttpSession session, @PathVariable("sessionId") int id) {
         model.addAttribute(sessionService.findById(id));
         model.addAttribute("user", findUser(session));
         return "postPos_rowAndCell";
@@ -66,8 +66,8 @@ public class SessionController {
         return "tickets";
 
     }
-    @PostMapping("/postPos_rowAndCell")
-    public String postPos_rowAndCell(@ModelAttribute Ticket ticket, HttpSession session,
+    @PostMapping("/postPosRowAndCell")
+    public String postPosRowAndCell(@ModelAttribute Ticket ticket, HttpSession session,
                                      @RequestParam(name = "sessionId") int id,
                                      @RequestParam(name = "pos_Row") int row) {
         User user = (User) session.getAttribute("user");

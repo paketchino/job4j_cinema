@@ -20,8 +20,8 @@ public class TicketService {
         return ticketDb.add(ticket);
     }
 
-    public List<Ticket> findById(int movieId, int pos_row) {
-        return ticketDb.findById(movieId, pos_row);
+    public List<Ticket> findById(int movieId, int posRow) {
+        return ticketDb.findById(movieId, posRow);
     }
 
     public List<Ticket> ticketList() {

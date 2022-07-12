@@ -9,7 +9,9 @@ public class User {
     private String email;
     private String phone;
 
-    public User() {}
+    public User() {
+
+    }
 
     public User(int id, String name, String email, String phone) {
         this.id = id;
@@ -18,9 +20,8 @@ public class User {
         this.phone = phone;
     }
 
-    public User(int user_id) {
+    public User(int userId) {
     }
-
 
     public int getId() {
         return id;

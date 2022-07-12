@@ -6,17 +6,17 @@ public class Ticket {
 
     private int id;
     private Session session;
-    private int pos_row;
+    private int posRow;
     private int cell;
     private User user;
 
     public Ticket() {
     }
 
-    public Ticket(int id, Session session, int pos_row, int cell, User user) {
+    public Ticket(int id, Session session, int posRow, int cell, User user) {
         this.id = id;
         this.session = session;
-        this.pos_row = pos_row;
+        this.posRow = posRow;
         this.cell = cell;
         this.user = user;
     }
@@ -40,12 +40,12 @@ public class Ticket {
         this.session = cinema;
     }
 
-    public int getPos_row() {
-        return pos_row;
+    public int getPosRow() {
+        return posRow;
     }
 
-    public void setPos_row(int pos_row) {
-        this.pos_row = pos_row;
+    public void setPosRow(int posRow) {
+        this.posRow = posRow;
     }
 
     public int getCell() {
@@ -74,7 +74,7 @@ public class Ticket {
         }
         Ticket ticket = (Ticket) o;
         return id == ticket.id
-                && pos_row == ticket.pos_row
+                && posRow == ticket.posRow
                 && cell == ticket.cell
                 && Objects.equals(session, ticket.session)
                 && Objects.equals(user, ticket.user);
@@ -82,6 +82,6 @@ public class Ticket {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, session, pos_row, cell, user);
+        return Objects.hash(id, session, posRow, cell, user);
     }
 }
